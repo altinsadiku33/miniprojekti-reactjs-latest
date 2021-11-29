@@ -32,7 +32,7 @@ class CustomersComponent extends Component {
             <div>
                 <h2 className="text-center">Customers List</h2>
                 <div className="d-flex justify-content-between">
-                    <button className="btn btn-success" onClick={this.addCustomer}>
+                    <button className="btn btn-success">
                         Add Customer
                     </button>
                     <input
