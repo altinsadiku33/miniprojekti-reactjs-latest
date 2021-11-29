@@ -14,6 +14,7 @@ function App() {
                 <div className="container">
                   <Switch>
                       <Route exact path="/" component={CustomersComponent}/>
+                      <Route exact path="/customers" component={CustomersComponent}/>
 
                   </Switch>
                 </div>
