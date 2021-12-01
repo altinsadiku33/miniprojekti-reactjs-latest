@@ -6,4 +6,4 @@ class ProductDataService {
     }
 }
 
-export default ProductDataService;
+export default new ProductDataService();
