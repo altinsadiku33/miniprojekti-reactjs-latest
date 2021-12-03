@@ -1,4 +1,4 @@
-import http from ".../http-common/http-common"
+import http from "../http-common/http-common"
 
 export class CustomerDataService {
     getCustomers(){
