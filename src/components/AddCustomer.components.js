@@ -1,4 +1,4 @@
-
+import React from "react";
 import {useFormik} from 'formik';
 import * as yup from 'yup';
 import {CustomerDataService} from "../services/Customers.services"
@@ -24,30 +24,6 @@ function AddCustomerComponent(props) {
     })
 
     const formik = useFormik({
-        onSubmit: (values) => {
-
-            CustomerDataService.addCustomer(customer).then(res => {
-                props.history.push("/customers");
-            })
-
-            let customer = {
-                firstName: values.firstName,
-                lastName: values.lastName,
-                birthdate: values.birthDate,
-                jobTitle: values.jobTitle,
-                category: values.category,
-                emailAddress: values.emailAddress,
-                customerAddress: {
-                    street: values.street,
-                    houseNumber: values.houseNumber,
-                    state: values.state,
-                    country: values.country,
-                    city: values.city,
-                    zipCode: values.zipCode,
-                }
-            }
-        },
-
         initialValues: {
             firstName: '',
             lastName: '',
@@ -63,9 +39,26 @@ function AddCustomerComponent(props) {
             zipCode: '',
         },
 
+        onSubmit: (values) => {
+            console.log(values);
+
+            let customer = {firstName: values.firstName, lastName: values.lastName,
+                birthdate: values.birthDate, jobTitle: values.jobTitle,
+                category: values.category, emailAddress: values.emailAddress,
+                customerAddress: {
+                    street: values.street, houseNumber: values.houseNumber, state: values.state,
+                    country: values.country, city: values.city, zipCode: values.zipCode,
+                }
+
+            }
+
+            CustomerDataService.addCustomer(customer).then(res => {
+                props.history.push("/customers");
+            })
+        },
+
         validationSchema
     })
-
 
     const cancel = () => {
         props.history.push('/customers');
